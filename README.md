@@ -1,7 +1,7 @@
 # mProjectLayout
 
-![GitHub Release](https://img.shields.io/github/v/release/commor/mProjectLayout)
-![Downloads](https://img.shields.io/github/downloads/commor/mProjectLayout/total)
+![GitHub Release](https://img.shields.io/github/v/release/smokeluce/mProjectLayout)
+![Downloads](https://img.shields.io/github/downloads/smokeluce/mProjectLayout/total)
 ![Platform](https://img.shields.io/badge/Platform-Windows-blue)
 ![Avalonia](https://img.shields.io/badge/Built%20with-Avalonia-9cf)
 
