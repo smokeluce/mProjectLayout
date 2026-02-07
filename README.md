@@ -5,7 +5,7 @@ mProjectLayout helps you generate clean, intentional project structures with a f
 
 ## Screenshot
 
-![Screenshot](assets/screenshot.png)
+![Screenshot](assets/mProjectLayout.Screenshotv1.01.png)
 
 ## Features
 
@@ -14,7 +14,7 @@ mProjectLayout helps you generate clean, intentional project structures with a f
 - Built‑in presets for common project types  
 - Automatic README and metadata scaffolding  
 - Lightweight, fast, and fully self‑contained  
-- Designed for clarity, repeatability, and expressive workflow
+- Designed for clarity, repeatability, and expressive workflowcls
 
 ## Download
 
