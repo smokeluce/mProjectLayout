@@ -1,5 +1,0 @@
-E:\Programming\mProjectLayout\bin\Release\net9.0\win-x64\publish\mProjectLayout.pdb
-E:\Programming\mProjectLayout\bin\Release\net9.0\win-x64\publish\av_libglesv2.dll
-E:\Programming\mProjectLayout\bin\Release\net9.0\win-x64\publish\libHarfBuzzSharp.dll
-E:\Programming\mProjectLayout\bin\Release\net9.0\win-x64\publish\libSkiaSharp.dll
-E:\Programming\mProjectLayout\bin\Release\net9.0\win-x64\publish\mProjectLayout.exe

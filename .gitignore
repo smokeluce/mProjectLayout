@@ -1,0 +1,52 @@
+# Build outputs
+bin/
+obj/
+
+# Avalonia build artifacts
+*.axaml.cs~
+*.axaml.g.cs
+*.axaml.g.*
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+
+# Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet
+*.nupkg
+packages/
+.nuget/
+
+# Logs
+*.log
+
+# OS junk
+Thumbs.db
+ehthumbs.db
+.DS_Store
+
+# Dotnet tools
+.dotnet/
+tools/
+
+# Publish output
+publish/
+artifacts/
+
+# Backup files
+*.bak
+*.tmp
+
+# Resharper
+_ReSharper.Caches/
+
+# Avalonia resources cache
+*.resources
