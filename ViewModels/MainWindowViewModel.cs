@@ -4,6 +4,7 @@ using Avalonia.Controls;
 using System.Threading.Tasks;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Platform.Storage;
+using System.Windows.Input;
 
 namespace mProjectLayout.ViewModels;
 
@@ -23,11 +24,13 @@ public partial class MainWindowViewModel : ObservableObject
 
     public IRelayCommand BrowseCommand { get; }
     public IRelayCommand GenerateCommand { get; }
+    public ICommand ShowHelpCommand { get; }
 
     public MainWindowViewModel()
     {
         BrowseCommand = new RelayCommand(async () => await BrowseAsync());
         GenerateCommand = new RelayCommand(async () => await GenerateAsync());
+        ShowHelpCommand = new RelayCommand(ShowHelp);
     }
 
     private void Log(string message)
@@ -57,7 +60,6 @@ public partial class MainWindowViewModel : ObservableObject
         LogText = string.Empty;
         Log("Starting generation...");
 
-        // No directory selected
         if (string.IsNullOrWhiteSpace(SelectedDirectory) ||
             SelectedDirectory.StartsWith("Click"))
         {
@@ -66,7 +68,6 @@ public partial class MainWindowViewModel : ObservableObject
             return;
         }
 
-        // Structure box empty
         if (string.IsNullOrWhiteSpace(StructureText))
         {
             StatusText = "No structure provided.";
@@ -85,5 +86,14 @@ public partial class MainWindowViewModel : ObservableObject
 
         StatusText = $"Finished. Created {dirs} Directories and {files} Files.";
         Log("Generation complete.");
+    }
+
+    private void ShowHelp()
+    {
+        LogText +=
+            "How to use mProjectLayout:\n" +
+            "1. Browse to select a base directory.\n" +
+            "2. Paste a folder structure into the box.\n" +
+            "3. Click Generate to create the skeleton.\n\n";
     }
 }
