@@ -8,15 +8,13 @@
     xmlns:vm="using:mProjectLayout.ViewModels"
     mc:Ignorable="d"
     Width="700"
-    Height="500"
+    Height="560"
     Title="mProjectLayout">
 
     <Window.Styles>
-        <!-- Compact padding overrides -->
         <Style Selector="TextBox">
             <Setter Property="Padding" Value="4,3"/>
         </Style>
-
         <Style Selector="Button">
             <Setter Property="Padding" Value="6,3"/>
         </Style>
@@ -35,22 +33,19 @@
 
         <!-- Main Layout Grid -->
         <Grid Margin="12"
-              RowDefinitions="Auto,Auto,Auto,Auto,Auto,*"
+              RowDefinitions="Auto,*,Auto,Auto,Auto,*"
               RowSpacing="12">
 
-            <!-- Directory Picker -->
+            <!-- Row 0: Directory Picker -->
             <Grid Grid.Row="0" ColumnDefinitions="100,*,30" ColumnSpacing="8">
-
                 <Button Grid.Column="0"
                         Content="Browse"
                         Command="{Binding BrowseCommand}"
                         Width="100"/>
-
                 <TextBox Grid.Column="1"
                          Text="{Binding SelectedDirectory}"
                          IsReadOnly="True"
                          HorizontalAlignment="Stretch"/>
-
                 <Button Grid.Column="2"
                         Content="?"
                         Command="{Binding ShowHelpCommand}"
@@ -60,42 +55,51 @@
                         VerticalAlignment="Center"/>
             </Grid>
 
-            <!-- Paste Area -->
-            <StackPanel Grid.Row="1" Spacing="4">
-                <TextBlock Text="Paste Folder Structure:"/>
-                <TextBox Text="{Binding StructureText}"
+            <!-- Row 1: Paste Area (stretches) -->
+            <Grid Grid.Row="1" RowDefinitions="Auto,*">
+                <TextBlock Grid.Row="0" Text="Paste Folder Structure:" Margin="0,0,0,4"/>
+                <TextBox Grid.Row="1"
+                         Text="{Binding StructureText}"
                          AcceptsReturn="True"
-                         Height="150"
-                         ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-            </StackPanel>
+                         TextWrapping="NoWrap"
+                         FontFamily="Cascadia Mono,Consolas,Courier New,monospace"
+                         FontSize="12"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+            </Grid>
 
-            <!-- Generate Button -->
-            <Button Grid.Row="2"
-                    Content="Generate Project Skeleton"
-                    Command="{Binding GenerateCommand}"
-                    HorizontalAlignment="Right"
-                    Width="220"/>
+            <!-- Row 2: Generate + Clear buttons -->
+            <Grid Grid.Row="2" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="8">
+                <Button Grid.Column="1"
+                        Content="Clear"
+                        Command="{Binding ClearCommand}"
+                        Width="80"/>
+                <Button Grid.Column="2"
+                        Content="Generate Project Skeleton"
+                        Command="{Binding GenerateCommand}"
+                        Width="220"/>
+            </Grid>
 
-            <!-- Separator Line -->
-            <Border Grid.Row="3"
-                    Height="1"
-                    Background="#444"/>
+            <!-- Row 3: Separator -->
+            <Border Grid.Row="3" Height="1" Background="#444"/>
 
-            <!-- Log Label -->
+            <!-- Row 4: Log Label -->
             <TextBlock Grid.Row="4" Text="Log:"/>
 
-            <!-- Log Panel (softened background) -->
+            <!-- Row 5: Log Panel (stretches) -->
             <Border Grid.Row="5"
                     Background="#1A1A1A"
                     CornerRadius="4"
                     Padding="8">
-
-                <TextBox Text="{Binding LogText}"
+                <TextBox x:Name="LogBox" Text="{Binding LogText}"
                          AcceptsReturn="True"
                          IsReadOnly="True"
+                         FontFamily="Cascadia Mono,Consolas,Courier New,monospace"
+                         FontSize="11"
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Stretch"
-                         ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
             </Border>
 
         </Grid>
